@@ -1,7 +1,7 @@
 <div class='page'>
   <div class='page_content'>
    <div class="page_block">
-     <header class='header row'>
+     <header class='header g-0 row'>
       <div class="col-3">
         {{> logo}}
       </div> 
@@ -12,7 +12,7 @@
         </div>
        </nav>
       </header>
-       {{> divider }}
+       
     </div>
     <div class="page_block">
        {{> hero title=hero.title text=hero.text }}
@@ -27,9 +27,30 @@
          {{/each}}
        </main>
      </div>
+
+    <div class="page_block">
+      <div class="calc">
+       <table class="table">
+         <caption>My table</caption>
+          <tbody>
+            {{#each footer}}
+             <tr>
+                    {{#each links}}
+                      <td>
+                        {{text}}
+                      </td>  
+                    {{/each}}
+                     <td></td>
+                     
+             </tr>  
+            {{/each}}
+          </tbody>
+       </table>
+      </div>  
+    </div>
+
       <div class="page_block">
-        {{> divider }}
-        <footer class="row footer">
+        <footer class="row g-0 footer">
            <div class="col-3">
               {{> logo}} 
              <span class="footer_copyright">Copyright 2023-2024</span> 
