@@ -1,3 +1,30 @@
+@keyframes fly {
+  from {
+    top: 0;
+    left: 0;
+    background: red;
+  }
+
+  25% {
+    top: 500px;
+    left: 500px;
+    background: blue;
+    width: 100px;
+  }
+
+  50% {
+    left: 0;
+    background: yellow;
+    width: 0px;
+  }
+
+  to {
+    top: 0;
+    right: 0;
+    background: purple;
+  }
+}
+
 :root {
   --space-m: 12px;
   --space-xm: 16px;
@@ -15,6 +42,7 @@
   --border-radius: 12px;
   --weight-title: 500;
   --weight-text: 400;
+  --page-width: 960px;
 }
 
 /* ================ */
@@ -26,7 +54,7 @@
   justify-content: center;
 }
 .page_content {
-  max-width: 960px;
+  max-width: var(--page-width);
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -39,6 +67,12 @@
   border-bottom: 1px solid var(--color-border);
   display: flex;
   justify-content: space-between;
+  position: sticky;
+  max-width: var(--page-width);
+  width: 100%;
+  top: 0;
+  background-color: var(--color-white);
+  z-index: 1;
 }
 .logo {
   font-size: 17px;
@@ -67,6 +101,8 @@
   font-size: var(--size-d);
   text-decoration: none;
   line-height: 100%;
+  transition-property: color;
+  transition-duration: 1s;
 }
 
 .nav_link:hover {
@@ -158,6 +194,10 @@
   text-decoration: none;
   padding: var(--space-m) var(--space-xm);
   border-radius: var(--border-radius);
+  text-align: center;
+
+  transition-property: opacity, background-color, color;
+  transition-duration: 1s;
 }
 .card_button {
   color: var(--color-white);
@@ -166,6 +206,8 @@
 }
 .button:hover {
   opacity: 0.7;
+  background-color: yellow;
+  color: red;
 }
 .form {
   display: flex;
@@ -196,4 +238,91 @@
   width: 100%;
   max-width: 160px;
   color: var(--color-text);
+}
+.hero_slider_icon {
+  background: var(--color-primary);
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--border-radius);
+  color: var(--color-white);
+  position: absolute;
+  top: calc(50% - 15px);
+}
+.hero_slider_icon:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+.hero_slider {
+  position: relative;
+}
+.hero_slider_left {
+  left: var(--space-l);
+}
+.hero_slider_right {
+  right: var(--space-l);
+}
+.modal {
+  position: fixed;
+  top: 200px;
+  left: 200px;
+  /* height: 100px; */
+  width: 600px;
+  background: black;
+  color: #fff;
+  padding: 24px;
+  border-radius: 24px;
+  line-height: 150%;
+  z-index: 2;
+  /* transition-property: top;
+  transition-duration: 3s;
+  transition-timing-function: cubic-bezier(
+    -0.6,
+    -0.04,
+    0.98,
+    0.335
+  );
+  transition-delay: 3s; */
+}
+.modal {
+  animation-name: fly;
+  animation-duration: 4s;
+  animation-timing-function: cubic-bezier(
+    0.92,
+    0,
+    0.91,
+    0.66
+  );
+  animation-delay: 3s;
+  /* animation-iteration-count: infinite; */
+  animation-direction: alternate;
+  animation-fill-mode: both;
+}
+body:hover .modal {
+  animation-play-state: paused;
+}
+.modal_image {
+  height: 600px;
+  width: 700px;
+  float: left;
+  margin-right: 12px;
+  margin-top: 12px;
+  object-fit: scale-down;
+  background: aquamarine;
+  object-position: 10px 10px;
+}
+.modal_text {
+  clear: left;
+}
+.hero {
+  user-select: none;
+}
+.input {
+  caret-color: var(--color-primary);
+  border: 1px solid var(--color-title);
+}
+:root {
+  scroll-behavior: smooth;
 }
