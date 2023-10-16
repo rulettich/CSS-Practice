@@ -1,0 +1,28 @@
+{{#with data}}
+
+  <div class='art_heading'>
+    <h4 class='art_title'>Our Articles</h4>
+    <button class='art_button'>View All</button>
+  </div>
+  <div class='article_card'>
+
+    {{#each articles}}
+      <div class='art_card_body'>
+        <img
+          class='art_card_image'
+          style='background-image'
+          src='{{photo}}'
+          id='{{id}}'
+        />
+        {{#if isNew}}
+          <div class='art_card_badge'>NEW</div>
+        {{/if}}
+        <h6 class='art_card_name'>{{name}}</h6>
+        <p class='art_card_text'>{{description}}</p>
+        <button class='art_button'>Read All</button>
+      </div>
+    {{/each}}
+
+  </div>
+
+{{/with}}
