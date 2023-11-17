@@ -9,24 +9,14 @@
         </div>
        </nav>
 </header>
-
-<main class="main">
-  {{#with messages}}
-    <div class="messages">
-      <h1 class="messages_title">{{title}}</h1>
-
-       {{#each list}}
-         <div class="msg">
-           <strong class="msg_name">{{name}}</strong>
-           <p class="msg_text">{{message}}</p>
-           <span class="msg_day">{{day}}</span>
-         </div>
-       {{/each}} 
-
-      <a href="#" class="messages_link">All messages</a>
-      
-    </div>
+<div class="hero_info">
+  {{#with info}}
+  <div class="hero">
+    <h1 class="hero_title">{{title}}</h1>
+    <p class="hero_text">{{description}}</p>
+  </div>
   {{/with}}
+
  {{#with form}}
   <form class="form">
     <h2 class="form_title">{{title}}</h2>
@@ -46,24 +36,42 @@
     <p class="form_info">{{info}}</p>
   </form>
  {{/with}} 
- 
-   {{#each advantages}}
-     <div class="advantage">
-        <strong>{{title}}</strong>
-        <p>{{text}}</p>
-     </div>
-   {{/each}}
-
+</div>
+<main class="updates_block">
+   {{#with updates}}
+     <h6 class="updates_title">{{title}}</h6>
+      {{#each list}}
+       <div class="media">
+         <div class="media_image"></div>
+          <div class="media_body">
+            <div class="nickname">{{nickname}}</div>
+            <p class="list_description">{{description}}</p>
+          </div>
+        </div>
+      {{/each}}
+        {{#with show_all}}
+           <a href="{{url}}" class="update_link">{{text}}</a>
+        {{/with}}
+   {{/with}}
 </main>
 
-<div class="advantages">
-   {{#each advantages}}
-     <div>
-        <strong>{{title}}</strong>
-        <p>{{text}}</p>
-     </div>
-   {{/each}}
-</div>
+<section class="expirience_block">
+  
+    {{#with expirience}}
+       <h2 class="expirience_title">{{title}}</h2>
+        <div class="block_badge">{{badge}}</div>
+       <div class="frame_card">
+        {{#each list}}
+        <div class="user_card">
+         
+            <div class="user_name">{{name}}</div>
+            <p class="details">{{details}}</p>
+          
+        </div>
+        {{/each}}
+       </div>
+    {{/with}}
+</section>
 
 <footer class="footer">
            <div>
@@ -76,5 +84,4 @@
                  {{> nav list=links isVertical=true}}
                </div>
             {{/each}}
-</footer>   
-
+</footer>  
